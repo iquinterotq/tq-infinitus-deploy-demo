@@ -1,0 +1,220 @@
+infinitus:
+  security-api:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 200m
+        memory: 128Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  system-api:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 200m
+        memory: 128Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  security-site:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  system-site:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  hsm-api:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 200m
+        memory: 128Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  infinitus-api:
+    image:
+      tag: "0098"
+    config:
+      env:
+        Gateway__IP: tq-orquesta-testing-in-app-api-backoffice.tq-orquesta-testing.svc.cluster.local
+        Gateway__Port: "80"
+        Logging__LogLevel__Default: Debug
+        Logging__LogLevel__Microsoft: Debug
+    resources:
+      requests:
+        cpu: 200m
+        memory: 128Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  settings-site:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  operations-site:
+    image:
+     tag: "0098"
+    resources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  worldlinetq-api:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 200m
+        memory: 128Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+    
+
+  worldlinetq-proxy:
+    image:
+      tag: "0098"
+    config:
+      env:
+        Logging__LogLevel__Default: Debug
+        Logging__LogLevel__Microsoft: Debug
+        LogConfig__Folder: /app/TqCoreLogs/Infinitus.Implementaion.Proxy.Logs
+    resources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+    persistence:
+      data:
+        enabled: true
+        name: logs
+        size: 100Mi
+        mountPath: /app/TqCoreLogs/Infinitus.Implementaion.Proxy.Logs\Diagnostic
+        accessModes: 
+          - ReadWriteOnce
+        storageClassName: gp2
+
+  deliverymanager-api:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 200m
+        memory: 128Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  deliverymanager-proxy:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  scheduler-api:
+    image:
+      tag: "0098"
+    resources:
+      requests:
+        cpu: 200m
+        memory: 128Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production
+
+  scheduler-site:
+    image:
+      tag: "0098"
+    config:
+      env:
+        TQCore__Diagnostic__LogFolder: /app/TqCoreLogs/Scheduler.Console.Site.Logs
+    resources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+    tolerations:
+      - key: production
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      environment: production

@@ -1,0 +1,5 @@
+.envrc
+.age/
+.kube/
+**/Chart.lock
+**/charts/

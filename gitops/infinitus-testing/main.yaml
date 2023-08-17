@@ -1,0 +1,50 @@
+# Este archivo es utilizado para configuraciones generales del stack.
+# Para configuraciones especificas de cada componente utilizamos values.yaml
+---
+global:
+  baseDomain: infinitus.eks.tqcorp.dev
+  imagePullSecret: dockerhub
+  environmentName: DEMO
+
+infinitus:
+  security-api:
+    enabled: true
+
+  system-api:
+    enabled: true
+
+  security-site:
+    enabled: true
+
+  system-site:
+    enabled: true
+
+  hsm-api:
+    enabled: true
+
+  infinitus-api:
+    enabled: true
+
+  settings-site:
+    enabled: true
+
+  operations-site:
+    enabled: true
+
+  worldlinetq-api:
+    enabled: true
+
+  worldlinetq-proxy:
+    enabled: true
+
+  deliverymanager-api:
+    enabled: true
+
+  deliverymanager-proxy:
+    enabled: true
+
+  scheduler-api:
+    enabled: true
+
+  scheduler-site:
+    enabled: true
